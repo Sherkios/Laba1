@@ -9,8 +9,8 @@
 <body>
 	<p><a href="index.php">Главная</a></p>
 	<?php
-		$random_N = rand();
-		$random_M = rand();
+		$random_N = rand(0, 100000);
+		$random_M = rand(0, 100000);
 	?>
 	<p>Числа между <?php echo $random_N ?> и <?php echo $random_M ?>, которые можно представить как сумму кубов трех чисел</p>
 	<?php 
@@ -57,5 +57,25 @@
 		 		}
 		}
 	?>
+	<h2>2 задание</h2>
+	 <?php 
+	 	$random_N = rand(0,500);
+	 	$first_number = 0;
+	 	$second_number = 0;
+	 	for ($i=$random_N; $i > 0 ; $i--) { 
+	 		for ($k=$random_N; $k > 0 ; $k--) { 
+	 			if (($i * $i + $k * $k) == $random_N) {
+	 				$first_number = $i;
+	 				$second_number = $k;
+	 			}
+	 		}
+	 	}
+	 	if ($first_number != 0) {
+	 		echo "Число ", $random_N, " состоит из суммы квадратов чисел ", $first_number, " и ", $second_number, "<br>" ;
+	 	} else {
+	 		echo "Число ", $random_N, " не возможно представить в виде суммы квадратов двух чисел";
+	 	}
+	  ?>
+
 </body>
 </html>
